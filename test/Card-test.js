@@ -21,6 +21,10 @@ describe( 'Card', ( ) => {
     expect( card ).to.be.an.instanceof( Card );
   }); 
 
+  it( 'Should take in an ID', ( ) => {
+    expect( card.id ).to.equal( 1 );
+  }); 
+
   it( 'Should store a question', ( ) => {
     expect( card.question ).to.equal( 'What allows you to define a set of related information using key-value pairs?' );
   });  
