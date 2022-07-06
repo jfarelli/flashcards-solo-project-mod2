@@ -31,7 +31,7 @@ describe( 'Card', ( ) => {
   });  
 
   it( 'Should store a list of possible answers', ( ) => {
-    expect( card.possibleAnswers ).to.deep.equal( [ 'object', 'array', 'function' ] );
+    expect( card.answers ).to.deep.equal( [ 'object', 'array', 'function' ] );
   });  
 
   it( 'Should store the correct answer', ( ) => {
