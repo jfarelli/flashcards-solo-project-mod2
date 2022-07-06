@@ -5,10 +5,10 @@ const Card = require( '../src/Turn' );
 const Turn = require( '../src/Turn' );
 
 describe( 'Turn', ( ) => {
-    let card1;
-    let card2;
     let turn1;
     let turn2;
+    let card1;
+    let card2;
     beforeEach( ( ) => {
         turn1 = new Turn( 'function', card1 );
         turn2 = new Turn( 'array', card2 );

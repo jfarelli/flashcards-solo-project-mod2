@@ -9,17 +9,25 @@ class Round {
     }
 
     // returnCurrentCard: method that returns the current card being played
-    returnCurrentCard( currentCard ) {
-        // console.log( 'CURRENTCARD: ', currentCard )
-        let turn = new Turn( )
-        // console.log( 'TURN.RETURNCARD: ', turn.returnCard( currentCard[ this.turns ] ) )
-        return turn.returnCard( currentCard[ this.turns ] )
+    returnCurrentCard(  ) {
+        return this.deck[ this.turns ]
+        // let turn = new Turn(  )
+        // // console.log( '14: ', turn.returnCard( currentCard[ this.turns ] ) )
+        // return turn.returnCard( currentCard[ this.turns ] )
     }
 
     // takeTurn: method that updates turns count, evaluates guesses, 
     // gives feedback, and stores ids of incorrect guesses
-    takeTurn( ) {
-
+    takeTurn( guess ) {
+        let turn = new Turn( guess, this.returnCurrentCard( ) );
+        // console.log( 'GUESS: ', guess )
+        if ( !turn.evaluateGuess( ) ) {
+            // console.log( 'TURN.CURRENTCARD.ID: ', turn.currentCard.id )
+            this.incorrectGuesses.push( turn.currentCard.id );
+            this.deck.push( this.deck.shift( ) );
+        }
+        this.turns++
+        return turn.giveFeedback( );
     }
 
     // calculatePercentCorrect: method that calculates and returns 

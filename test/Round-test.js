@@ -1,16 +1,22 @@
 const chai = require( 'chai' );
 const expect = chai.expect;
 
-// const Card = require('../src/Card');
+const Card = require('../src/Card');
+const Deck = require('../src/Deck');
 const Round = require( '../src/Round' );
 const data = require( '../src/sample-data' );
+const Turn = require('../src/Turn');
 
 describe( 'Round', ( ) => {
+    let card;
     let round;
-    let cards;
+    // let turn;
     beforeEach( ( ) => {
-        cards = data.sampleData.map( data => data );
-        round = new Round( cards );
+        card = data.sampleData.map( data => data );
+        round = new Round( card );
+        // console.log( 'ROUND: ', round )
+        // turn = new Turn(  );
+        // console.log( 'TURN: ', turn )
     } );
 
     it( 'Should be a function', ( ) => {
@@ -22,6 +28,7 @@ describe( 'Round', ( ) => {
     } );
 
     it( 'Should hold the deck', ( ) => {
+        // console.log( 'ROUND.DECK: ', round.deck )
         expect( round.deck ).to.be.a( 'array' );
         expect( round.deck ).to.deep.equal( 
             [
@@ -69,8 +76,26 @@ describe( 'Round', ( ) => {
     } );
 
     it( 'Should return the current card being played', ( ) => {
-        expect( round.returnCurrentCard( cards ) ).to.equal( cards[ 0 ] );
+        expect( round.returnCurrentCard( card ) ).to.be.a( 'object' );
+        expect( round.returnCurrentCard( card ) ).to.equal( card[ 0 ] );
     } );
 
+    it( 'Should update the turn count', ( ) => {
+        round.takeTurn( 'object' )
+        expect( round.turns ).to.equal( 1 );
+    } );
+
+    it( 'Should evaluate the user\'s guess', ( ) => {
+        expect( round.takeTurn( 'array' ) ).to.equal( 'incorrect!' );
+    } );
+
+    it( 'Should give feedback to the user', ( ) => {
+        expect( round.takeTurn( 'array' ) ).to.equal( 'incorrect!' );
+    } );
+
+    it( 'Should store incorrectGuesses by id', ( ) => {
+        round.takeTurn( 'array' );
+        expect( round.incorrectGuesses ).to.deep.equal( [ 1 ] );
+    } );
 
 } )
