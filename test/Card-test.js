@@ -12,13 +12,18 @@ describe( 'Card', ( ) => {
       [ 'object', 'array', 'function' ], 
       'object'
       );
-  })
+  });
+
   it( 'Should be a function', ( ) => {
     expect( Card ).to.be.a( 'function' );
   });
 
   it( 'Should be an instance of Card', ( ) => {
     expect( card ).to.be.an.instanceof( Card );
+  }); 
+
+  it( 'Should take in an ID', ( ) => {
+    expect( card.id ).to.equal( 1 );
   }); 
 
   it( 'Should store a question', ( ) => {
