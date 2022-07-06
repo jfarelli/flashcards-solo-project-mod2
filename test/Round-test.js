@@ -68,5 +68,9 @@ describe( 'Round', ( ) => {
         expect( round.incorrectGuesses ).to.deep.equal( [ ] );
     } );
 
+    it( 'Should return the current card being played', ( ) => {
+        expect( round.returnCurrentCard( cards ) ).to.equal( cards[ 0 ] );
+    } );
+
 
 } )

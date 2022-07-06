@@ -1,3 +1,5 @@
+const Turn = require( './Turn' );
+
 class Round {
     constructor( deck ) {
         this.deck = deck;
@@ -7,19 +9,30 @@ class Round {
     }
 
     // returnCurrentCard: method that returns the current card being played
-
+    returnCurrentCard( currentCard ) {
+        // console.log( 'CURRENTCARD: ', currentCard )
+        let turn = new Turn( )
+        // console.log( 'TURN.RETURNCARD: ', turn.returnCard( currentCard[ this.turns ] ) )
+        return turn.returnCard( currentCard[ this.turns ] )
+    }
 
     // takeTurn: method that updates turns count, evaluates guesses, 
     // gives feedback, and stores ids of incorrect guesses
+    takeTurn( ) {
 
+    }
 
     // calculatePercentCorrect: method that calculates and returns 
     // the percentage of correct guesses
+    calculatePercentCorrect( ) {
 
+    }
 
     // endRound: method that prints the following to the console: 
     // ‘** Round over! ** You answered <>% of the questions correctly!’
+    endRound( ) {
 
+    }
 }
 
 module.exports = Round;
