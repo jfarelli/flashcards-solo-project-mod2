@@ -27,7 +27,7 @@ describe( 'Turn', ( ) => {
             );
     } );
 
-    it( 'should be a function', ( ) => {
+    it( 'Should be a function', ( ) => {
         expect( Turn ).to.be.a( 'function' );
     } );
 
