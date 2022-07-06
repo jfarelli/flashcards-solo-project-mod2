@@ -2,28 +2,28 @@ const chai = require( 'chai' );
 const expect = chai.expect;
 
 // const Card = require('../src/Card');
-const Deck = require( '../src/Deck' );
+const Round = require( '../src/Round' );
 const data = require( '../src/sample-data' );
 
-describe( 'Deck', ( ) => {
-    let deck;
+describe( 'Round', ( ) => {
+    let round;
     let cards;
     beforeEach( ( ) => {
         cards = data.sampleData.map( data => data );
-        deck = new Deck( cards );
+        round = new Round( cards );
     } );
 
     it( 'Should be a function', ( ) => {
-        expect( Deck ).to.be.a( 'function' );
+        expect( Round ).to.be.a( 'function' );
     } );
 
-    it( 'Should be an instance of Deck', ( ) => {
-        expect( deck ).to.be.an.instanceof( Deck );
+    it( 'Should be an instance of Round', ( ) => {
+        expect( round ).to.be.an.instanceof( Round );
     } );
 
-    it( 'Should hold all the cards in the deck', ( ) => {
-        expect( deck.cardsInDeck ).to.be.a( 'array' );
-        expect( deck.cardsInDeck ).to.deep.equal( 
+    it( 'Should hold the deck', ( ) => {
+        expect( round.deck ).to.be.a( 'array' );
+        expect( round.deck ).to.deep.equal( 
             [
                 {
                     id: 1,
@@ -56,11 +56,17 @@ describe( 'Deck', ( ) => {
                     correctAnswer: 'iteration method'
                 }
             ]
-        )
+        );
     } );
 
-    it( 'Should know how many cards are in the deck', ( ) => {
-        expect( deck.countCards( ) ).to.equal( 5 )
-    } )
+    it( 'Should start with no turns taken', ( ) => {
+        expect( round.turns ).to.equal( 0 );
+    } );
+
+    it( 'Should store incorrectGuesses in an array', ( ) => {
+        expect( round.incorrectGuesses ).to.be.a( 'array' );
+        expect( round.incorrectGuesses ).to.deep.equal( [ ] );
+    } );
+
 
 } )
