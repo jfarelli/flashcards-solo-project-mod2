@@ -12,7 +12,8 @@ describe( 'Card', ( ) => {
       [ 'object', 'array', 'function' ], 
       'object'
       );
-  })
+  });
+
   it( 'Should be a function', ( ) => {
     expect( Card ).to.be.a( 'function' );
   });
