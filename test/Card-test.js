@@ -6,11 +6,12 @@ const Card = require( '../src/Card' );
 describe( 'Card', ( ) => {
   let card;
   beforeEach( ( ) => {
-    card = new Card(
-      1, 
-      'What allows you to define a set of related information using key-value pairs?', 
-      [ 'object', 'array', 'function' ], 
-      'object'
+    card = new Card
+      (
+        1, 
+        'What allows you to define a set of related information using key-value pairs?', 
+        [ 'object', 'array', 'function' ], 
+        'object'
       );
   });
 
@@ -31,7 +32,7 @@ describe( 'Card', ( ) => {
   });  
 
   it( 'Should store a list of possible answers', ( ) => {
-    expect( card.possibleAnswers ).to.deep.equal( [ 'object', 'array', 'function' ] );
+    expect( card.answers ).to.deep.equal( [ 'object', 'array', 'function' ] );
   });  
 
   it( 'Should store the correct answer', ( ) => {
