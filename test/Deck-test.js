@@ -9,7 +9,7 @@ describe( 'Deck', ( ) => {
     let deck;
     let cards;
     beforeEach( ( ) => {
-        cards = data.sampleData.map( data => data  );
+        cards = data.sampleData.map( data => data );
         deck = new Deck( cards );
     } );
 
@@ -21,7 +21,7 @@ describe( 'Deck', ( ) => {
         expect( deck ).to.be.an.instanceof( Deck );
     } );
 
-    it( 'Should hold all the cards', ( ) => {
+    it( 'Should hold all the cards in the deck', ( ) => {
         expect( deck.cardsInDeck ).to.be.a( 'array' );
         expect( deck.cardsInDeck)
     } );
