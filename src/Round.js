@@ -33,13 +33,21 @@ class Round {
     // calculatePercentCorrect: method that calculates and returns 
     // the percentage of correct guesses
     calculatePercentCorrect( ) {
-
+        // setup a correct guess variable
+        // subtract the decks length from the incorrectGuesses length
+        let correctGuesses = this.deck.length - this.incorrectGuesses.length
+        // once the correct guesses are established divide by the deck length
+        // and * by 100 to get percentage
+        correctGuesses = ( correctGuesses / this.deck.length ) * 100
+        // console.log( 'CORRECTGUESSES: ', correctGuesses  )
+        // return a whole number, so there's no decimals
+        return Math.round( correctGuesses )
     }
 
     // endRound: method that prints the following to the console: 
     // ‘** Round over! ** You answered <>% of the questions correctly!’
     endRound( ) {
-
+        console.log( `** Round over! ** You answered ${ this.calculatePercentCorrect( ) }% of the questions correctly! **` );
     }
 }
 

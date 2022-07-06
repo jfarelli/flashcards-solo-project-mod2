@@ -76,8 +76,8 @@ describe( 'Round', ( ) => {
     } );
 
     it( 'Should return the current card being played', ( ) => {
-        expect( round.returnCurrentCard( card ) ).to.be.a( 'object' );
-        expect( round.returnCurrentCard( card ) ).to.equal( card[ 0 ] );
+        expect( round.returnCurrentCard(  ) ).to.be.a( 'object' );
+        expect( round.returnCurrentCard(  ) ).to.equal( card[ 0 ] );
     } );
 
     it( 'Should update the turn count', ( ) => {
@@ -97,5 +97,16 @@ describe( 'Round', ( ) => {
         round.takeTurn( 'array' );
         expect( round.incorrectGuesses ).to.deep.equal( [ 1 ] );
     } );
+
+    it( 'Should calculate the percentage of correct answers', ( ) => {
+        round.takeTurn('object')
+        round.takeTurn('function')
+        round.takeTurn('array')
+        expect( round.calculatePercentCorrect( ) ).to.equal( 60 );
+    } );
+
+    // it.skip( 'Should print a message at the end of the round', ( ) => {
+    //     expect( round.endRound( ) ).to.equal( `** Round over! ** You answered 60% of the questions correctly! **` );
+    // } );
 
 } )
