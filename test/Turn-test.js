@@ -12,18 +12,19 @@ describe( 'Turn', ( ) => {
     beforeEach( ( ) => {
         turn1 = new Turn( 'function', card1 );
         turn2 = new Turn( 'array', card2 );
-
-        card1 = new Card( 
-            1, 
-            'What allows you to define a set of related information using key-value pairs?', 
-            [ 'object', 'array', 'function' ], 
-            'object'
+        card1 = new Card
+            ( 
+                1, 
+                'What allows you to define a set of related information using key-value pairs?', 
+                [ 'object', 'array', 'function' ], 
+                'object'
             );
-        card2 = new Card( 
-            2,
-            "What is a comma-separated list of related values?",
-            [ "array", "object", "function" ],
-            "array"
+        card2 = new Card
+            ( 
+                2,
+                "What is a comma-separated list of related values?",
+                [ "array", "object", "function" ],
+                "array"
             );
     } );
 
