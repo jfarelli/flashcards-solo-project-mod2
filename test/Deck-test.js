@@ -4,9 +4,9 @@ const expect = chai.expect;
 const Deck = require( '../src/Deck' );
 const data = require( '../src/sample-data' );
 
-describe( 'Deck', ( ) => { // somthing
-    let deck;
+describe( 'Deck', ( ) => { 
     let cards;
+    let deck;
     beforeEach( ( ) => {
         cards = data.sampleData.map( data => data );
         deck = new Deck( cards );

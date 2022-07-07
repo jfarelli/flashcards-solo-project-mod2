@@ -1,6 +1,6 @@
-const Card = require('./Card');
-const Deck = require('./Deck');
-const Round = require('./Round');
+const Card = require( './Card' );
+const Deck = require( './Deck' );
+const Round = require( './Round' );
 
 const data = require( './data' );
 const prototypeQuestions = data.prototypeData; /// Look at this for importing from sample-data <<<<<<<<<<<<<<<

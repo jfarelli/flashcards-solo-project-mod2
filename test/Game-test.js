@@ -8,12 +8,12 @@ const Round = require( '../src/Round' );
 const data = require( '../src/sample-data' );
 
 
-describe( 'Game', ( ) => { // something
-    let card;
+describe( 'Game', ( ) => { 
     let cardsInTheDeck;
+    let card;
     let deck;
-    let game;
     let round;
+    let game;
     beforeEach( ( ) => {
         cardsInTheDeck = data.sampleData.map( data => data );
         card = new Card( cardsInTheDeck )
