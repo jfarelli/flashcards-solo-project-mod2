@@ -1,14 +1,14 @@
-const inquirer = require('inquirer');
+const inquirer = require( 'inquirer' );
 
-const genList = (round) => {
-  let card = round.returnCurrentCard();
+const genList = ( round ) => {
+  let card = round.returnCurrentCard( );
   
-  let choices = card.answers.map((answer, index) => {
+  let choices = card.answers.map( ( answer, index ) => {
     return {
       key: index,
       value: answer
     }
-  });
+  } );
   return {
     type: 'rawlist',
     message: card.question,
@@ -17,28 +17,28 @@ const genList = (round) => {
   };
 }
 
-const getRound = (round) => {
-  return Promise.resolve(round);
+const getRound = ( round ) => {
+  return Promise.resolve( round );
 }
 
-const confirmUpdate = (id, round) => {
-  const feedback = round.takeTurn(id);
+const confirmUpdate = ( id, round ) => {
+  const feedback = round.takeTurn( id );
   return {
     name: 'feedback',
-    message: `Your answer of ${id} is ${feedback}`
+    message: `Your answer of ${ id } is ${ feedback }`
   }
 }
 
-async function main(round) {
+async function main( round ) {
 
-  const currentRound = await getRound(round);
-  const getAnswer = await inquirer.prompt(genList(currentRound));
-  const getConfirm = await inquirer.prompt(confirmUpdate(getAnswer.answers, round));
+  const currentRound = await getRound( round );
+  const getAnswer = await inquirer.prompt( genList( currentRound ) );
+  const getConfirm = await inquirer.prompt( confirmUpdate( getAnswer.answers, round ) );
 
-    if(!round.returnCurrentCard()) {
-      round.endRound();
+    if( !round.returnCurrentCard( ) ) {
+      round.endRound( );
     } else {
-      main(round);
+      main( round );
     }
 }
 

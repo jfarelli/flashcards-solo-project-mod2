@@ -1,23 +1,68 @@
 const chai = require( 'chai' );
 const expect = chai.expect;
 
-const Card = require('../src/Card');
-const Deck = require('../src/Deck');
+const Card = require( '../src/Card' );
+const Deck = require( '../src/Deck' );
 const Round = require( '../src/Round' );
+const Turn = require( '../src/Turn' );
 const data = require( '../src/sample-data' );
-const Turn = require('../src/Turn');
 
-describe( 'Round', ( ) => {
-    let card;
-    let round;
-    // let turn;
-    beforeEach( ( ) => {
-        card = data.sampleData.map( data => data );
-        round = new Round( card );
-        // console.log( 'ROUND: ', round )
-        // turn = new Turn(  );
-        // console.log( 'TURN: ', turn )
-    } );
+// describe( 'Round', ( ) => {
+//     let card;
+//     let round;
+//     // let turn;
+//     beforeEach( ( ) => {
+//         card = data.sampleData.map( data => data );
+//         let cards = new Card( card )
+//         // card = new Card( data.sampleData.map( data => data ) );
+//         round = new Round( cards );
+//         // console.log( 'ROUND: ', round )
+//         // turn = new Turn(  );
+//         // console.log( 'TURN: ', turn )
+//     } );
+
+    describe( 'Round', ( ) => {
+        let card1;
+        let card2;
+        let card3;
+        let card4;
+        let card5;
+        let deck;
+        let round;
+        beforeEach( ( ) => {
+            card1 = new Card(
+                1,
+                "What allows you to define a set of related information using key-value pairs?",
+                [ "object", "array", "function" ],
+                "object"
+            );
+            card2 = new Card(
+                2,
+                "What is a comma-separated list of related values?",
+                [ "array", "object", "function" ],
+                "array"
+            );
+            card3 = new Card(
+                3,
+                "What type of prototype method directly modifies the existing array?",
+                [ "mutator method", "accessor method", "iteration method" ],
+                "mutator method"
+            );
+            card4 = new Card(
+                4,
+                'What type of prototype method does not modify the existing array but returns a particular representation of the array?',
+                [ 'mutator method', 'accessor method', 'iteration method' ],
+                'accessor method'
+            );
+            card5 = new Card(
+                5,
+                'What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?',
+                [ 'mutator method', 'accessor method', 'iteration method' ],
+                'iteration method'
+            );
+            deck = new Deck( [ card1, card2, card3, card4, card5 ] );
+            round = new Round( deck );
+    });
 
     it( 'Should be a function', ( ) => {
         expect( Round ).to.be.a( 'function' );
@@ -28,7 +73,6 @@ describe( 'Round', ( ) => {
     } );
 
     it( 'Should hold the deck', ( ) => {
-        // console.log( 'ROUND.DECK: ', round.deck )
         expect( round.deck ).to.be.a( 'array' );
         expect( round.deck ).to.deep.equal( 
             [
@@ -77,7 +121,7 @@ describe( 'Round', ( ) => {
 
     it( 'Should return the current card being played', ( ) => {
         expect( round.returnCurrentCard(  ) ).to.be.a( 'object' );
-        expect( round.returnCurrentCard(  ) ).to.equal( card[ 0 ] );
+        expect( round.returnCurrentCard(  ) ).to.equal( card1 );
     } );
 
     it( 'Should update the turn count', ( ) => {
@@ -100,8 +144,10 @@ describe( 'Round', ( ) => {
 
     it( 'Should calculate the percentage of correct answers', ( ) => {
         round.takeTurn('object')
-        round.takeTurn('function')
         round.takeTurn('array')
+        round.takeTurn('accessor method')
+        round.takeTurn('iteration method')
+        round.takeTurn('mutator method')
         expect( round.calculatePercentCorrect( ) ).to.equal( 60 );
     } );
 
