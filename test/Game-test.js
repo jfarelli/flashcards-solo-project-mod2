@@ -31,9 +31,4 @@ describe( 'Game', ( ) => {
         expect( game.currentRound ).to.be.a( 'object' );
         expect( game.currentRound ).to.deep.equal( { } );
     } );
-
-    // it.skip( 'Should start the Game', ( ) => {
-    //     expect( game.start( ) ).to.equal( );
-    // } );
-
 } )
