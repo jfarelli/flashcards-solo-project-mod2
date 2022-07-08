@@ -1,14 +1,17 @@
 const Turn = require( './Turn' );
 const Game = require( './Game' );
+// const game = new Game( this );
+
 
 
 class Round {
-    constructor( deck ) {
+    constructor( deck, game ) {
         // console.log( 'DECK: ', deck )
         this.deck = deck.cardsInDeck;
         // console.log( 'THIS.DECK: ', this.deck )
         this.turns = 0;
         this.incorrectGuesses = [ ];
+        this.game = game;
     }
 
     returnCurrentCard(  ) {
@@ -31,17 +34,13 @@ class Round {
             return Math.round( correctGuesses )
     }
 
-    endRound( ) {
-        console.log( `** Round over! ** You answered ${ this.calculatePercentCorrect( ) }% of the questions correctly! **` )
-        
-        // if ( this.calculatePercentCorrect( ) > 90 ) {
-        //     console.log( `** GONGRATULATIONS! ** You answered ${ this.calculatePercentCorrect( ) }% of the questions correctly! Nice Work!**` );
-        //     this.endRound( )
-        // } else {
-        //     console.log( `** UH, OH! ** You answered ${ this.calculatePercentCorrect( ) }% of the questions correctly...Give it another shot! **` );
-        //     // let game = new Game( );
-        //     // game.start( )
-        // }
+    endRound( ) {      
+        if ( this.calculatePercentCorrect( ) > 90 ) {
+            console.log( `** GONGRATULATIONS! ** You answered ${ this.calculatePercentCorrect( ) }% of the questions correctly! Nice Work!**` );
+        } else {
+            console.log( `** UH, OH! ** You only answered ${ this.calculatePercentCorrect( ) }% of the questions correctly...Give it another shot! **` );
+            this.game.start( );
+        }
     }
 }
 
