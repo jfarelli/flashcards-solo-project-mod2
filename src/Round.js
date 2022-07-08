@@ -1,14 +1,9 @@
 const Turn = require( './Turn' );
 const Game = require( './Game' );
-// const game = new Game( this );
-
-
 
 class Round {
     constructor( deck, game ) {
-        // console.log( 'DECK: ', deck )
         this.deck = deck.cardsInDeck;
-        // console.log( 'THIS.DECK: ', this.deck )
         this.turns = 0;
         this.incorrectGuesses = [ ];
         this.game = game;
