@@ -116,19 +116,25 @@ const Round = require( '../src/Round' );
     it( 'Should update the turn count', ( ) => {
         round.takeTurn( 'object' )
         expect( round.turns ).to.equal( 1 );
+        round.takeTurn( 'array' )
+        expect( round.turns ).to.equal( 2 );
     } );
 
     it( 'Should evaluate the user\'s guess', ( ) => {
         expect( round.takeTurn( 'array' ) ).to.equal( 'incorrect!' );
+        expect( round.takeTurn( 'mutator method' ) ).to.equal( 'correct!' );
     } );
 
     it( 'Should give feedback to the user', ( ) => {
         expect( round.takeTurn( 'array' ) ).to.equal( 'incorrect!' );
+        expect( round.takeTurn( 'mutator method' ) ).to.equal( 'correct!' );
     } );
 
     it( 'Should store incorrectGuesses by id', ( ) => {
         round.takeTurn( 'array' );
         expect( round.incorrectGuesses ).to.deep.equal( [ 1 ] );
+        round.takeTurn( 'object' );
+        expect( round.incorrectGuesses ).to.deep.equal( [ 1, 3 ] );
     } );
 
     it( 'Should calculate the percentage of correct answers', ( ) => {

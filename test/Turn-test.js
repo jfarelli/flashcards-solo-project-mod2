@@ -62,11 +62,9 @@ describe( 'Turn', ( ) => {
 
     it( 'Should know if the answer is correct', ( ) => {
         expect( turn1.evaluateGuess( ) ).to.equal( false );
-        // expect( turn2.evaluateGuess( ) ).to.equal( true );
     } );
 
     it( 'Should give feedback on the guess', ( ) => {
         expect( turn1.giveFeedback( turn1.evaluateGuess( ) ) ).to.equal( 'incorrect!' );
-        // expect( turn2.giveFeedback( turn2.evaluateGuess( ) ) ).to.equal( 'correct!' );
     } )
 } )
