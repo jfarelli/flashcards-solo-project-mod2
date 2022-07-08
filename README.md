@@ -26,7 +26,20 @@
 * Enjoy!
 
 
-**DEMOOOOOOOOOOOOOO VIDEOOOOOOOOOOOOOOO**
+**GAMEPLAY**
+
+https://user-images.githubusercontent.com/97558758/178031725-05d01b61-adfd-4a44-b828-7104eaea713b.mov
+
+
+**ABOVE 90% ACCURACY**
+
+https://user-images.githubusercontent.com/97558758/178032090-fb606185-bb54-4f52-9f93-c8e8aa34d59d.mov
+
+
+**BELOW 90% ACCURACY**
+
+https://user-images.githubusercontent.com/97558758/178032037-7543e336-a214-4d97-bdb1-54752a2ac363.mov
+
 
 <details>
 <summary>Project Details</summary>
