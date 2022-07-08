@@ -2,6 +2,7 @@ const Card = require( './Card' );
 const Deck = require( './Deck' );
 const Round = require( './Round' );
 
+
 const data = require( './data' );
 const questions = data.prototypeData; /// Look at this for importing from sample-data <<<<<<<<<<<<<<<
 const util = require( './util' );
@@ -14,7 +15,9 @@ class Game {
   start( ) {
     const cards = questions.map( card => new Card( card.id, card.question, card.answers, card.correctAnswer ) );
     const deck = new Deck( cards );
-    const round = new Round( deck );
+
+    const round = new Round( deck, this ); // <===
+    
     this.currentRound = round;
       this.printMessage( deck );
       this.printQuestion( round );
