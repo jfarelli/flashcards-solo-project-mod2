@@ -7,17 +7,14 @@ const Game = require( '../src/Game' );
 const Round = require( '../src/Round' );
 const data = require( '../src/sample-data' );
 
-
 describe( 'Game', ( ) => { 
-    let cardsInTheDeck;
-    let card;
+    let cards;
     let deck;
     let round;
     let game;
     beforeEach( ( ) => {
-        cardsInTheDeck = data.sampleData.map( data => data );
-        card = new Card( cardsInTheDeck )
-        deck = new Deck( card );
+        cards = new Card( data.sampleData.map( data => data ) )
+        deck = new Deck( cards );
         round = new Round( deck );
         game = new Game( round );
     } );
@@ -35,8 +32,8 @@ describe( 'Game', ( ) => {
         expect( game.currentRound ).to.deep.equal( { } );
     } );
 
-    it.skip( 'Should start the Game', ( ) => {
-        expect( game.start( ) ).to.equal( );
-    } );
+    // it.skip( 'Should start the Game', ( ) => {
+    //     expect( game.start( ) ).to.equal( );
+    // } );
 
 } )

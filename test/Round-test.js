@@ -3,10 +3,9 @@ const expect = chai.expect;
 
 const Card = require( '../src/Card' );
 const Deck = require( '../src/Deck' );
-// const Game = require( '../src/Game' );
 const Round = require( '../src/Round' );
-// const Turn = require( '../src/Turn' );
 // const data = require( '../src/sample-data' );
+
 
 // describe( 'Round', ( ) => { //
 //     let card;
@@ -22,7 +21,9 @@ const Round = require( '../src/Round' );
 //         // console.log( 'TURN: ', turn )
 //     } );
 
+
     describe( 'Round', ( ) => {
+        // let cards;
         let card1;
         let card2;
         let card3;
@@ -31,36 +32,52 @@ const Round = require( '../src/Round' );
         let deck;
         let round;
         beforeEach( ( ) => {
-            card1 = new Card(
+            // cards = new Card( data.sampleData.map( data => data ) )
+            card1 = new Card( 
+                // cards.id[0]
                 1,
                 "What allows you to define a set of related information using key-value pairs?",
                 [ "object", "array", "function" ],
                 "object"
-            );
-            card2 = new Card(
+                );
+            // console.log( 'CARDS[1]: ', cards.id[0] )
+
+            card2 = new Card( 
+                // cards.id[1]
                 2,
                 "What is a comma-separated list of related values?",
                 [ "array", "object", "function" ],
                 "array"
             );
-            card3 = new Card(
+            // console.log( 'CARDS[2]: ', cards.id[1] )
+
+            card3 = new Card( 
+                // cards.id[2]
                 3,
                 "What type of prototype method directly modifies the existing array?",
                 [ "mutator method", "accessor method", "iteration method" ],
                 "mutator method"
             );
-            card4 = new Card(
+            // console.log( 'CARDS[3]: ', cards.id[2] )
+
+            card4 = new Card( 
+                // cards.id[3]
                 4,
                 'What type of prototype method does not modify the existing array but returns a particular representation of the array?',
                 [ 'mutator method', 'accessor method', 'iteration method' ],
                 'accessor method'
             );
-            card5 = new Card(
+            // console.log( 'CARDS[4]: ', cards.id[3] )
+
+            card5 = new Card( 
+                // cards.id[4]
                 5,
                 'What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?',
                 [ 'mutator method', 'accessor method', 'iteration method' ],
                 'iteration method'
             );
+            // console.log( 'CARDS[5]: ', cards.id[4] )
+
             deck = new Deck( [ card1, card2, card3, card4, card5 ] );
             round = new Round( deck );
     });
@@ -74,6 +91,7 @@ const Round = require( '../src/Round' );
     } );
 
     it( 'Should hold the deck', ( ) => {
+        // console.log( 'ROUND.DECK: ', round.deck )
         expect( round.deck ).to.be.a( 'array' );
         expect( round.deck ).to.deep.equal( 
             [
@@ -151,9 +169,4 @@ const Round = require( '../src/Round' );
         round.takeTurn('mutator method')
         expect( round.calculatePercentCorrect( ) ).to.equal( 60 );
     } );
-
-    // it.skip( 'Should print a message at the end of the round', ( ) => {
-    //     expect( round.endRound( ) ).to.equal( `** Round over! ** You answered 60% of the questions correctly! **` );
-    // } );
-
 } )
